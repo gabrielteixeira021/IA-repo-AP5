@@ -1,0 +1,13 @@
+def chatbot():
+    print("Olá! Eu sou o ChatBot Simples IA. Como posso te ajudar?")
+    while True:
+        pergunta = input("Você: ").lower()
+        if "oi" in pergunta or "olá" in pergunta:
+            print("Bot: Oi! Tudo bem com você?")
+        elif "sair" in pergunta:
+            print("Bot: Até logo!")
+            break
+        else:
+            print("Bot: Desculpe, ainda estou aprendendo.")
+
+chatbot()
