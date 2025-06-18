@@ -1,0 +1,45 @@
+import random
+opcoes = ['pedra', 'papel', 'tesoura']
+historico_jogador = []
+placar = {"vitórias": 0, "empates": 0, "derrotas": 0}
+def escolher_ia():
+    if not historico_jogador:
+        return random.choice(opcoes)
+    contagem = {op: historico_jogador.count(op) for op in opcoes}
+    mais_usada = max(contagem, key=contagem.get)
+    if mais_usada == 'pedra':
+        return random.choices(['papel', 'tesoura'], weights=[0.7, 0.3])[0]
+    elif mais_usada == 'papel':
+        return random.choices(['tesoura', 'pedra'], weights=[0.7, 0.3])[0]
+    else:  # tesoura
+        return random.choices(['pedra', 'papel'], weights=[0.7, 0.3])[0]
+def jogar():
+    print("Bem-vindo ao jogo: Pedra, Papel e Tesoura com IA Estratégica!")
+    print("Digite 'sair' para encerrar a partida.\n")
+    while True:
+        jogador = input("Escolha: pedra, papel ou tesoura? ").lower()
+        if jogador == 'sair':
+            break
+        if jogador not in opcoes:
+            print("Opção inválida. Tente novamente.\n")
+            continue
+        ia = escolher_ia()
+        historico_jogador.append(jogador)
+        print(f"IA escolheu: {ia}")
+        if jogador == ia:
+            print("Empate!\n")
+            placar["empates"] += 1
+        elif (jogador == 'pedra' and ia == 'tesoura') or \
+             (jogador == 'papel' and ia == 'pedra') or \
+             (jogador == 'tesoura' and ia == 'papel'):
+            print("Você venceu!\n")
+            placar["vitórias"] += 1
+        else:
+            print("Você perdeu!\n")
+            placar["derrotas"] += 1
+    print("\n--- Placar Final ---")
+    print(f"Vitórias: {placar['vitórias']}")
+    print(f"Empates: {placar['empates']}")
+    print(f"Derrotas: {placar['derrotas']}")
+    print("Obrigado por jogar!")
+jogar()
