@@ -1,0 +1,13 @@
+def classificar_emocao(frase):
+    frase = frase.lower()
+    if any(p in frase for p in ['feliz',  'bom', 'ótimo']):
+        return "Emoção: ALEGRIA"
+    elif any(p in frase for p in ['triste', 'chateado']):
+        return "Emoção: TRISTEZA"
+    elif any(p in frase for p in ['raiva', 'ódio', ]):
+        return "Emoção: RAIVA"
+    else:
+        return "Emoção: NEUTRA"
+
+texto = input("Digite uma frase: ")
+print(classificar_emocao(texto))
