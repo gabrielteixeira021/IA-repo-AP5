@@ -1,0 +1,39 @@
+def responder_pergunta(pergunta):
+    pergunta = pergunta.lower()
+    if "computação quântica" in pergunta or "quântica" in pergunta:
+        return (
+            "\n🔹 COMPUTAÇÃO QUÂNTICA\n""É uma nova forma de computação que usa qubits no lugar dos bits tradicionais.\n" "Exemplo de uso: descoberta de remédios e criptografia avançada."
+        )
+    elif "inteligência artificial" in pergunta or "ia" in pergunta:
+        return (
+            "\n🔹 INTELIGÊNCIA ARTIFICIAL (IA)\n" "É a capacidade das máquinas de aprender, pensar e tomar decisões baseadas em dados.\n"
+             "Exemplo: assistentes e recomendações."
+        )
+    elif "blockchain" in pergunta:
+        return (
+            "\n🔹 BLOCKCHAIN\n""É uma tecnologia de registro digital seguro e descentralizado.\n""Exemplo de uso: criptomoedas e contratos inteligentes."
+        )
+    elif "5g" in pergunta:
+        return (
+            "\n🔹 5G\n""É a quinta geração da internet móvel, muito mais rápida e estável.\n""Exemplo de uso: cirurgias remotas e cidades inteligentes."
+        )
+    elif "nft" in pergunta or "token não fungível" in pergunta:
+        return (
+            "\n🔹 NFT (Token Não Fungível)\n""É um ativo digital único, registrado em blockchain, que comprova autenticidade e propriedade.\n"
+            "Exemplo: arte digital e  colecionáveis."
+        )
+    elif "sair" in pergunta or "encerrar" in pergunta:
+        return "Encerrando o chatbot. Até logo!"
+
+    else:
+        return "Desculpe, não entendi. Tente perguntar sobre computação quântica, IA, blockchain, 5G ou NFT."
+print("Chatbot! Pergunte sobre computação quântica, IA, blockchain, 5G ou NFT.")
+print("Digite 'sair' para encerrar.\n")
+while True:
+    pergunta_usuario = input("Você: ")
+    resposta = responder_pergunta(pergunta_usuario)
+    print("Chatbot:", resposta)
+    if "Encerrando" in resposta:
+        break
+    
+    
