@@ -1,0 +1,13 @@
+import random
+
+lugares = [
+    "Paris, França", "Nova York, EUA",
+     "Sydney, Austrália", "Rio de Janeiro, Brasil",
+    "Roma, Itália",  "Barcelona, Espanha"
+]
+
+while True:
+    comando = input("Digite ENTER para sortear um lugar ou 'sair' para encerrar: ")
+    if comando.lower() == "sair":
+        break
+    print("Viagem:", random.choice(lugares))
