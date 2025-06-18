@@ -1,0 +1,9 @@
+from collections import Counter
+
+texto = input("Texto: ").lower()
+palavras = texto.split()
+frequencia = Counter(palavras)
+
+print("\nAs 5 palavras mais frequentes:")
+for palavra, contagem in frequencia.most_common(5):
+    print(f"{palavra}: {contagem}x")
