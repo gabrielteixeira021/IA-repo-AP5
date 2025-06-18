@@ -1,0 +1,17 @@
+baixo = 1
+alto = 100
+tentativas = 0
+print("Pense em um número de 1 a 100.\n")
+while baixo <= alto:
+    tentativas += 1
+    palpite = (baixo + alto) // 2
+    resposta = input(f"Seu número é {palpite}? (s = sim, m = menor, M = maior): ")
+    if resposta == "s":
+        print(f"Acertei em {tentativas} tentativas!")
+        break
+    elif resposta == "m":
+        alto = palpite - 1
+    elif resposta == "M":
+        baixo = palpite + 1
+    else:
+        print("Digite s, m ou M.")
