@@ -1,0 +1,13 @@
+filmes = {
+    "ação": ["Filme 1 de ação", "Filme 2 de ação", "Filme 3 de ação"],
+    "comédia": ["Filme 1 de comédia", "Filme 2 de comédia", "Filme 3 de comédia"],
+    "drama": ["Filme 1 de drama", "Filme 2 de drama", "Filme 3 de drama"],
+    "ficção": ["Filme 1 de ficção", "Filme 2 de ficção", "Filme 3 de ficção"]
+}
+
+gosto = input("Que tipo de filme você gosta? (ação, comédia, drama, ficção): ").lower()
+recomendados = filmes.get(gosto, ["Desculpe, não encontrei recomendações."])
+
+print("\nRecomendações de filmes:")
+for filme in recomendados:
+    print("- " + filme)
