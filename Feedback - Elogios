@@ -1,0 +1,18 @@
+import random
+inicios = ["Seu trabalho está", "Você apresentou um resultado", "Parabéns por um trabalho",
+    "Entrega", "Projeto", "Atividade", "Seu desempenho foi", "Avaliação"]
+adjetivos = ["excelente", "muito bem estruturado", "criativo", "organizado", "coerente e claro",
+    "acima da média", "com ótima argumentação", "exemplar", "de alto nível técnico",
+    "digno de destaque", "aprimorado com dedicação"]
+complementos = [    "e demonstra profundo domínio do conteúdo.",
+    "com ótima apresentação e linguagem adequada.",
+    "com foco, esforço e originalidade.",
+    "que impressiona pela qualidade e capricho.",
+    "e atende completamente aos critérios da proposta.",
+    "com ideias bem desenvolvidas e embasadas.",
+    "que reflete comprometimento com a aprendizagem.",
+    "e merece reconhecimento pelo empenho."]
+print("IA de Feedback!\n")
+for _ in range(5):
+    elogio = f"{random.choice(inicios)} {random.choice(adjetivos)}, {random.choice(complementos)}"
+    print(elogio)
