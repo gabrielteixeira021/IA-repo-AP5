@@ -1,0 +1,24 @@
+import random
+
+lugares_com_descricao = {
+    "Paris, França": "Cidade luz, perfeita para amantes da arte e da gastronomia.",
+    "Nova York, EUA": "A cidade que nunca dorme, cheia de energia e diversidade.",
+    "Sydney, Austrália": "Lar da Opera House e de belas praias ensolaradas.",
+    "Rio de Janeiro, Brasil": "Maravilhosa, com paisagens incríveis e samba no coração.",
+    "Roma, Itália": "História viva em cada ruína, com massas e arquitetura fascinantes."
+}
+print("Viagens com Inteligência!")
+lugares_restantes = list(lugares_com_descricao.keys())
+total = len(lugares_restantes)
+while True:
+    comando = input("\nPressione ENTER para sortear um lugar ou digite 'sair' para encerrar: ").strip().lower()
+    if comando == "sair":
+        print("Boa viagem nos seus sonhos!")
+        break
+    if not lugares_restantes:
+        print("\nTodos os lugares foram sorteados! Reiniciando a lista...")
+        lugares_restantes = list(lugares_com_descricao.keys())
+    lugar = random.choice(lugares_restantes)
+    lugares_restantes.remove(lugar)
+    print(f"\nViagem {total - len(lugares_restantes)}/{total} sorteada: {lugar}")
+    print(f"Sobre o lugar: {lugares_com_descricao[lugar]}")
