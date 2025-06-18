@@ -1,0 +1,10 @@
+import random
+import string
+
+def gerar_nome_robo():
+    letras = ''.join(random.choices(string.ascii_uppercase, k=5))
+    numeros = ''.join(random.choices(string.digits, k=2))
+    return letras + "-" + numeros
+
+for _ in range(5):
+    print("Nome do robô:", gerar_nome_robo())
