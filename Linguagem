@@ -1,0 +1,9 @@
+palavras_informais = ["tipo", "mano", "aff", "top", "vamo", "bora"]
+
+frase = input("Digite uma frase: ").lower()
+informais_encontradas = [p for p in palavras_informais if p in frase]
+
+if informais_encontradas:
+    print("Linguagem informal", ", ".join(informais_encontradas))
+else:
+    print("Linguagem formal.")
