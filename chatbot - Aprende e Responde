@@ -1,0 +1,12 @@
+memoria = {}
+
+print("Chatbot - Aprende e Responde (digite 'sair' para encerrar)\n")
+while True:
+    entrada = input("Você: ").lower()
+    if entrada == "sair":
+        break
+    if entrada in memoria:
+        print("Bot:", memoria[entrada])
+    else:
+        resposta = input("Bot: Não sei responder. Como devo responder? ")
+        memoria[entrada] = resposta
