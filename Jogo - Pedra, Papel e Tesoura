@@ -1,0 +1,20 @@
+import random
+
+opcoes = ['pedra', 'papel', 'tesoura']
+
+def jogar():
+    ia = random.choice(opcoes)
+    jogador = input("Escolha: pedra, papel ou tesoura? ").lower()
+
+    print("IA escolheu:", ia)
+
+    if jogador == ia:
+        print("Empate!")
+    elif (jogador == 'pedra' and ia == 'tesoura') or \
+         (jogador == 'papel' and ia == 'pedra') or \
+         (jogador == 'tesoura' and ia == 'papel'):
+        print("Você venceu!")
+    else:
+        print("Você perdeu!")
+
+jogar()
