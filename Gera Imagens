@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+
+def criar_varias_imagens(n=3, tamanho=100):
+    colormaps = ['viridis', 'plasma', 'magma', 'cividis']
+    plt.figure(figsize=(15, 3))
+    for i in range(n):
+        imagem = np.random.rand(tamanho, tamanho)
+        cmap = random.choice(colormaps)
+        
+        plt.subplot(1, n, i+1)
+        plt.imshow(imagem, cmap=cmap)
+        plt.title(f"Imagem {i+1}\nColormap: {cmap}")
+        plt.axis('off')
+    plt.tight_layout()
+    plt.show()
+criar_varias_imagens()
