@@ -1,0 +1,28 @@
+# Instalar e importar bibliotecas
+!pip install -q nltk
+
+import nltk
+nltk.download('vader_lexicon')
+
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+# Inicializar o analisador
+analisador = SentimentIntensityAnalyzer()
+
+# Entrada do usuário
+texto = input("Digite uma frase para análise de sentimento: ")
+
+# Análise de sentimentos
+resultado = analisador.polarity_scores(texto)
+
+# Exibição dos resultados
+print(f"\nTexto: {texto}")
+print("Pontuação de sentimentos:", resultado)
+
+# Interpretação do sentimento
+if resultado['compound'] >= 0.05:
+    print("Sentimento: Positivo")
+elif resultado['compound'] <= -0.05:
+    print("Sentimento: Negativo")
+else:
+    print("Sentimento: Neutro")
