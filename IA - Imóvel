@@ -1,0 +1,27 @@
+import tensorflow as tf
+import numpy as np
+import matplotlib.pyplot as plt
+
+area_m2 = np.array([50, 60, 70, 80, 90, 100, 110, 120], dtype=float)
+preco_mil = np.array([150, 180, 210, 240, 270, 300, 330, 360], dtype=float)
+
+modelo = tf.keras.Sequential([
+    tf.keras.layers.Dense(units=1, input_shape=[1])
+])
+
+modelo.compile(optimizer='adam', loss='mean_squared_error')
+modelo.fit(area_m2, preco_mil, epochs=200, verbose=0)
+novas_areas = np.array([55, 85, 130])
+previsoes = modelo.predict(novas_areas)
+
+for i, area in enumerate(novas_areas):
+    print(f"Área: {area} m² → Preço estimado: R$ {previsoes[i][0]:.2f} mil")
+
+plt.scatter(area_m2, preco_mil, label='Dados reais')
+plt.plot(area_m2, modelo.predict(area_m2), color='red', label='IA')
+plt.xlabel('Área (m²)')
+plt.ylabel('Preço (mil R$)')
+plt.title('Previsão - Preço de Imóvel')
+plt.legend()
+plt.grid(True)
+plt.show()
