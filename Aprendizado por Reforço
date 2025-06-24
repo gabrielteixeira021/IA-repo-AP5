@@ -1,0 +1,23 @@
+import random
+
+acoes_possiveis = ["andar", "ficar parado"]
+recompensas = {
+    "andar": 1,
+    "ficar parado": 0
+}
+q_valores = {
+    "andar": 0.0,
+    "ficar parado": 0.0
+}
+taxa_aprendizado = 0.5
+num_episodios = 2
+print("Aprendizado por reforço...\n")
+for episodio in range(num_episodios):
+    acao_escolhida = random.choice(acoes_possiveis)
+    recompensa = recompensas[acao_escolhida]
+    q_atual = q_valores[acao_escolhida]
+    q_valores[acao_escolhida] = q_atual + taxa_aprendizado * (recompensa - q_atual)
+    print(f"Episódios {episodio+1}: Ação '{acao_escolhida}' → Recompensa = {recompensa} | Q = {q_valores[acao_escolhida]:.2f}")
+
+melhor_acao = max(q_valores, key=q_valores.get)
+print(f"\nApós {num_episodios} episódios, a IA prefere: {melhor_acao.upper()}")
