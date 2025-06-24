@@ -1,0 +1,26 @@
+import math
+
+def prever_objeto(peso, tamanho):
+    base_treinamento = [
+        (2.0, 30, 'n1'),  
+        (2.2, 28, 'n1'),
+        (0.9, 45, 'n2'),  
+        (1.1, 50, 'n2')
+    ]
+
+    distancias = []
+    for peso_treino, tamanho_treino, tipo in base_treinamento:
+        distancia = math.sqrt((peso - peso_treino)**2 + (tamanho - tamanho_treino)**2)
+        distancias.append((distancia, tipo))
+
+    distancias.sort()
+    return distancias[0][1]  
+try:
+    peso_input = float(input("Digite o peso do objeto (em kg): "))
+    tamanho_input = float(input("Digite o tamanho do objeto (em cm): "))
+
+    objeto_predito = prever_objeto(peso_input, tamanho_input)
+    tipo_texto = "Objeto 1" if objeto_predito == "n1" else "Objeto 2"
+    print(f"Objeto previsto: {tipo_texto} ({objeto_predito})")
+except ValueError:
+    print("Erro: insira números válidos.")
