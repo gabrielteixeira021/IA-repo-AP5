@@ -43,6 +43,7 @@ while True:
 
     if entrada == "apagar":
         memoria.clear()
+        save_memory(memoria)
         print("Memória apagada.")
         continue
 
